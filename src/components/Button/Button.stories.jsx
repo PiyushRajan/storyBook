@@ -7,32 +7,38 @@ export default {
   component: Button,
   tags: ["autodocs"],
   argTypes: {
-    variant: { control: "text" },
-    children: { control: "text" },
-    color: { control: "text" },
-    size: { control: "text" },
+    variant: { control: "select", options: ["text", "contained", "outlined"] },
+    // children: { control: "text" },
+    color: { control: "select", options: ["success", "error", "secondary"] },
+    size: { control: "select", options: ["small", "medium", "large"] },
     onClick: { action: "clicked" },
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Button {...args}>{args.text}</Button>;
 
 export const TextButton = Template.bind({});
 TextButton.args = {
   variant: "text",
-  children: "Click me",
+  text: "Click me",
+  color: "secondary",
+  size: "medium",
 };
 
 export const Contained = Template.bind({});
 Contained.args = {
   variant: "contained",
-  children: "Click me",
+  text: "Click me",
+  color: "secondary",
+  size: "medium",
 };
 
 export const Outlined = Template.bind({});
 Outlined.args = {
   variant: "outlined",
-  children: "Click me",
+  text: "Click me",
+  color: "secondary",
+  size: "medium",
 };
 
 export const HandleClick = () => (
@@ -49,14 +55,15 @@ export const HandleClick = () => (
 export const Color = Template.bind({});
 Color.args = {
   variant: "contained",
-  children: "Click me",
+  text: "Click me",
   color: "success",
+  size: "medium",
 };
 
 export const SmallSize = Template.bind({});
 SmallSize.args = {
   variant: "contained",
-  children: "Click me",
+  text: "Click me",
   color: "success",
   size: "small",
 };
